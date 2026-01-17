@@ -1,0 +1,404 @@
+@import url('https://fonts.googleapis.com/css2?family=Russo+One&display=swap');
+
+body {
+  padding-top: 80px;
+}
+
+.custom-navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  padding: 20px 0;
+  background: transparent;
+}
+
+.navbar-content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* Logo Animation */
+.site-logo img {
+  height: 50px;
+  transition: height 0.4s ease;
+}
+
+/* Navigation Links */
+.main-menu {
+  display: flex;
+  gap: 30px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.main-menu a {
+  text-decoration: none;
+  color: #333;
+  font-weight: 500;
+  transition: color 0.3s;
+}
+
+.navbar-shrunk {
+  padding: 10px 0;
+  margin-top: 10px;
+  width: 95%;
+  left: 2.5%;
+  border-radius: 50px;
+  background: rgb(5 5 5 / 70%);
+  backdrop-filter: blur(10px) saturate(180%);
+  -webkit-backdrop-filter: blur(10px) saturate(180%);
+  border: 1px solid rgba(60, 60, 60, 0.3);
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.15);
+}
+
+.navbar-shrunk .site-logo img {
+  height: 40px;
+  /* Shrunk logo */
+}
+
+/* Mobile Toggle Styling */
+.mobile-toggle {
+  background: none;
+  border: none;
+  font-size: 24px;
+  cursor: pointer;
+}
+
+/* Button Styling (Example) */
+.rr-primary-btn {
+  background: #1c1e1f;
+  color: white;
+  padding: 10px 20px;
+  border-radius: 5px;
+  text-decoration: none;
+  transition: 0.3s;
+}
+
+.navbar-shrunk .rr-primary-btn {
+  border-radius: 30px;
+  /* Match the pill shape of the navbar */
+}
+
+
+h1 {
+  font-family: 'Russo One', sans-serif;
+}
+
+:root {
+  --primary-white: #ffffff;
+  --bg-dark: #050505;
+  --accent-blue: #3b82f6;
+}
+
+.hero-container {
+  background-color: var(--bg-dark);
+  color: var(--primary-white);
+  min-height: 100vh;
+  position: relative;
+  overflow: hidden;
+  padding: 5% 8%;
+  display: flex;
+  align-items: center;
+}
+
+/* Big Typography Background */
+.bg-typography {
+  position: absolute;
+  top: 5%;
+  left: 5%;
+  width: 90%;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.main-title {
+  font-family: 'Russo One', sans-serif;
+  font-weight: 800;
+  font-size: 12vw;
+  margin: 0;
+  line-height: 0.9;
+  text-transform: none;
+}
+
+.main-title.bottom {
+  text-align: right;
+  margin-top: 10vh;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+}
+
+.left-col {
+  max-width: 400px;
+}
+
+.description {
+  font-size: 1rem;
+  line-height: 1.6;
+  opacity: 0.8;
+  margin-bottom: 4rem;
+}
+
+/* CTA & Stats */
+.cta-section {
+  display: flex;
+  align-items: center;
+  gap: 3rem;
+}
+
+.quote-circle {
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 50%;
+  width: 120px;
+  height: 120px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-size: 0.8rem;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.quote-circle:hover {
+  background: var(--accent-blue);
+  color: var(--primary-white);
+}
+
+.stats {
+  display: flex;
+  flex-direction: column;
+}
+
+.percentage {
+  font-size: 3.5rem;
+  font-weight: 800;
+  line-height: 1;
+}
+
+.label {
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.progress-bar {
+  width: 100%;
+  height: 2px;
+  background: var(--accent-blue);
+  margin-top: 10px;
+}
+
+@media (max-width: 768px) {
+  .hero-container {
+    padding: 20% 5%;
+    align-items: flex-start;
+  }
+
+  .main-title {
+    font-size: 18vw;
+  }
+
+  .left-col {
+    margin-top: 40vh;
+  }
+
+  .cta-section {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 2rem;
+  }
+}
+/* Section Padding */
+.about-section {
+    padding: 80px 0;
+    position: relative;
+    overflow: hidden;
+}
+
+.about-img-container {
+    position: relative;
+    display: block;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.main-img-box {
+    width: 85%; 
+    margin-left: auto; 
+}
+
+.main-image {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    object-fit: cover;
+    display: block;
+}
+
+.overlap-img-box {
+    position: absolute;
+    bottom: 30px;
+    left: 0;
+    width: 45%; 
+    aspect-ratio: 1 / 1;
+    border: 3px solid #000000;
+    border-radius: 4px;
+    z-index: 2;
+    background: #000000;
+}
+
+.overlap-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+
+@media (max-width: 991px) {
+    .about-section {
+        padding: 60px 0;
+    }
+    .about-img-container {
+        margin-bottom: 50px; 
+    }
+}
+
+@media (max-width: 576px) {
+    .overlap-img-box {
+        width: 50%;
+        border-width: 6px; 
+        bottom: -20px;
+    }
+    .main-img-box {
+        width: 90%;
+    }
+}
+
+@media (min-width: 1200px) {
+    .about-section {
+        padding: 120px 0;
+    }
+}
+.about-section-14 .about-content-4 {
+    padding-left: 0px;
+}
+
+
+/* Padding and Spacing */
+.pb-120 { padding-bottom: 120px; }
+.pt-120 { padding-top: 120px; }
+
+/* Left Image Grid Logic */
+.about-img-wrap-4 {
+    position: relative;
+    padding-left: 50px; /* Space for the overlapping image */
+}
+
+.about-img-wrap-4 .img-1 img {
+    width: 100%;
+    border-radius: 10px;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+}
+
+.about-img-wrap-4 .img-2 {
+    position: absolute;
+    bottom: -30px;
+    left: 0;
+    width: 45%;
+    border: 10px solid #ffffff;
+    border-radius: 8px;
+    z-index: 2;
+    background: #fff;
+}
+
+/* Right Content Area */
+.description-text {
+    font-size: 16px;
+    line-height: 1.8;
+    color: #666;
+    margin-top: 20px;
+}
+
+/* Success Items Grid */
+.about-success {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+    margin-top: 40px;
+}
+
+.about-success-item {
+    display: flex;
+    gap: 15px;
+    flex: 1;
+    min-width: 200px;
+}
+
+.about-success-item .title {
+    font-size: 18px;
+    font-weight: 700;
+    margin-bottom: 5px;
+}
+
+/* Footer Button & Avatar Stack */
+.about-14-btn-wrap {
+    display: flex;
+    align-items: center;
+    gap: 25px;
+    flex-wrap: wrap;
+    margin-top: 50px;
+   
+}
+
+.img-group-stack {
+    display: flex;
+    align-items: center;
+}
+
+.img-group-stack img {
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    border: 3px solid #fff;
+    margin-left: -15px; /* Creates the overlapping effect */
+    object-fit: cover;
+}
+
+.img-group-stack img:first-child {
+    margin-left: 0;
+}
+
+.count-info .title {
+    font-size: 24px;
+    font-weight: 800;
+    margin: 0;
+}
+
+/* Responsive Fixes */
+@media (max-width: 991px) {
+    .about-img-wrap-4 {
+        margin-bottom: 80px;
+        padding-left: 30px;
+    }
+}
+
+@media (max-width: 576px) {
+    .about-14-btn-wrap {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 20px;
+    }
+    .about-img-wrap-4 .img-2 {
+        width: 60%;
+        border-width: 5px;
+    }
+}

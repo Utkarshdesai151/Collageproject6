@@ -3,6 +3,7 @@ import About1 from '../assets/Homepage/about-img-6.png'
 import About2 from '../assets/Homepage/about-img-7.png'
 import '../index.css';
 import '../pages/About.css';
+import About3 from '../assets/Homepage/about-img-11.png'
 import { motion } from 'framer-motion';
 
 // Animation Variants for reusability
@@ -23,14 +24,14 @@ function Home() {
         <div className="">
             <section className="hero-container">
                 <div className="container">
-                    <motion.div 
+                    <motion.div
                         className="bg-typography"
                         initial="initial"
                         whileInView="whileInView"
                         variants={staggerContainer}
                         viewport={{ once: true }}
                     >
-                        <motion.h1 
+                        <motion.h1
                             className="main-title top"
                             variants={{
                                 initial: { opacity: 0, x: -100 },
@@ -40,7 +41,7 @@ function Home() {
                         >
                             Creativity is
                         </motion.h1>
-                        <motion.h1 
+                        <motion.h1
                             className="main-title bottom"
                             variants={{
                                 initial: { opacity: 0, x: 100 },
@@ -54,7 +55,7 @@ function Home() {
 
                     <div className="hero-content">
                         <div className="left-col">
-                            <motion.div 
+                            <motion.div
                                 className="cta-section"
                                 initial={{ scale: 0.8, opacity: 0 }}
                                 animate={{ scale: 1, opacity: 1 }}
@@ -74,20 +75,18 @@ function Home() {
             <section id="about" className="about-section-4 about-section-14 pb-120 pt-120">
                 <div className="container">
                     <div className="row gy-lg-0 gy-5 align-items-center">
-                        
-                        {/* Left Image Side - Reveal from Left */}
-                        <motion.div 
+                        <motion.div
                             className="col-lg-6 col-md-12"
                             initial={{ opacity: 0, x: -50 }}
                             whileInView={{ opacity: 1, x: 0 }}
                             viewport={{ once: true, amount: 0.3 }}
-                            transition={{delay:1 , duration: 5 }}
+                            transition={{ delay: 1, duration: 5 }}
                         >
                             <div className="about-img-wrap-4">
                                 <div className="about-img img-1 reveal">
                                     <img src={About1} alt="Main About" className="img-fluid" />
                                 </div>
-                                <motion.div 
+                                <motion.div
                                     className="about-img img-2 reveal"
                                     initial={{ scale: 0.8 }}
                                     whileInView={{ scale: 1 }}
@@ -99,7 +98,7 @@ function Home() {
                         </motion.div>
 
                         {/* Right Content Side - Staggered Children Reveal */}
-                        <motion.div 
+                        <motion.div
                             className="col-lg-6 col-md-12"
                             initial="initial"
                             whileInView="whileInView"
@@ -119,7 +118,7 @@ function Home() {
 
                                 <div className="about-counter-wrap">
                                     <motion.div className="about-success" variants={staggerContainer}>
-                                        
+
                                         {/* Success Item 1 */}
                                         <motion.div className="about-success-item" variants={fadeInUp}>
                                             <div className="icon">
@@ -165,6 +164,49 @@ function Home() {
                                             <span className="dec">Active Reviews</span>
                                         </div>
                                     </motion.div>
+                                </div>
+                            </div>
+                        </motion.div>
+                    </div>
+
+                    <div className="row gy-lg-0 gy-5 pt-4 align-items-center">
+                        <motion.div
+                            className="col-lg-6 col-md-12"
+                            initial="initial"
+                            whileInView="whileInView"
+                            variants={staggerContainer}
+                            viewport={{ once: true, amount: 0.2 }}
+                        >
+                            <div className="about-content-4 ">
+                                <motion.div className="section-heading heading-3 mb-0" variants={fadeInUp}>
+
+                                    <h2 className="section-title t-up active">We Provide Service In One Place</h2>
+                                    <p class="fade-top" >In addition to competition, factory companies also fe challenges related to labor and the environment. Many factory companies hae been criticized for exploiting workers and polluting the environment address these concerns</p>
+                                </motion.div>
+                                <div className="about-list-wrap fade-top">
+                                    <span>Development Special Services:</span>
+                                    <ul class="about-list">
+                                        <li><i class="fa-regular fa-circle-check"></i>Emergency Solutions Anytime</li>
+                                        <li><i class="fa-regular fa-circle-check"></i>Emergency Solutions Anytime</li>
+                                        <li><i class="fa-regular fa-circle-check"></i>Affordable price upto 2 years</li>
+                                        <li><i class="fa-regular fa-circle-check"></i>Reliable &amp; Experienced Team</li>
+                                    </ul>
+                                </div>
+                                  <motion.div className="about-14-btn-wrap" variants={fadeInUp}>
+                                <a href="/about" className="rr-primary-btn">Get Started</a>
+                            </motion.div>
+                            </div>                        
+                        </motion.div>
+                        <motion.div
+                            className="col-lg-6 col-md-12"
+                            initial={{ opacity: 0, x: -50 }}
+                            whileInView={{ opacity: 1, x: 0 }}
+                            viewport={{ once: true, amount: 0.3 }}
+                            transition={{ delay: 1, duration: 5 }}
+                        >
+                            <div className="about-img-wrap-4">
+                                <div className="about-img-6 img-1 reveal">
+                                    <img src={About3} alt="Main About" className="img-fluid" />
                                 </div>
                             </div>
                         </motion.div>

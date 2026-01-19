@@ -2,8 +2,8 @@ import { useState, useEffect } from 'react';
 import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
 import { AnimatePresence, motion } from 'framer-motion';
 import './index.css';
+import './styles/WaterLoader.css';
 
-// Components
 import Navbar from './components/Navbar';
 import Home from './pages/Home';
 import About from './pages/About';
@@ -13,27 +13,44 @@ import Contact from './pages/Contact';
 function AppContent() {
   const location = useLocation();
   const [loading, setLoading] = useState(false);
+  const text = "Satwarth";
 
-  // Trigger "Fake" Loader on Route Change
   useEffect(() => {
     setLoading(true);
-    const timer = setTimeout(() => setLoading(false), 800); // Loader duration
+    // 5.6s total time for water filling animation
+    const timer = setTimeout(() => setLoading(false), 5600); 
     return () => clearTimeout(timer);
   }, [location]);
 
   return (
     <>
-      {/* Fake Pre-loader */}
-      {loading && (
-        <div className="loader-container">
-          <div className="spinner"></div>
-        </div>
-      )}
+      <AnimatePresence>
+        {loading && (
+          <motion.div 
+            className="loader-container"
+            initial={{ y: 0 }}
+            exit={{ y: "-100%" }} 
+            transition={{ duration: 0.8, ease: [0.76, 0, 0.24, 1] }}
+          >
+            <div className="water-text">
+              {text.split("").map((char, index) => (
+                <span 
+                  key={index} 
+                  data-text={char} 
+                  style={{ "--delay": `${index * 0.3}s` }}
+                >
+                  {char}
+                </span>
+              ))}
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
 
       <Navbar />
       
-      {/* AnimatePresence handles the exit/entry of pages */}
       <AnimatePresence mode="wait">
+        {/* We use key={location.pathname} so Framer knows when the route changes */}
         <Routes location={location} key={location.pathname}>
           <Route path="/" element={<PageWrapper><Home /></PageWrapper>} />
           <Route path="/about" element={<PageWrapper><About /></PageWrapper>} />
@@ -45,13 +62,20 @@ function AppContent() {
   );
 }
 
-// Simple wrapper to give every page a fade/slide transition
+// THE UPGRADED WRAPPER
 const PageWrapper = ({ children }) => (
   <motion.div
-    initial={{ opacity: 0, y: 20 }}
-    animate={{ opacity: 1, y: 0 }}
-    exit={{ opacity: 0, y: -20 }}
-    transition={{ duration: 0.5, ease: "easeOut" }}
+    initial={{ opacity: 0, y: 50 }} 
+    animate={{ opacity: 1, y: 0 }}   
+    exit={{ opacity: 0, y: -20 }}    
+    transition={{ 
+      duration: 0.6, 
+      ease: "easeOut",
+      // DELAY LOGIC: 
+      // The loader exit duration is 0.8s. 
+      // Setting this to 0.8s makes the page start exactly when the loader is gone.
+      delay: 0.8 
+    }}
   >
     {children}
   </motion.div>

@@ -101,7 +101,7 @@ h1 {
   min-height: 100vh;
   position: relative;
   overflow: hidden;
-  padding: 5% 8%;
+  padding: 5% 2%;
   display: flex;
   align-items: center;
 }
@@ -566,4 +566,8 @@ p {
   color: #707070;
   margin-bottom: 15px;
   line-height: 28px;
+}
+
+.mt-top{
+    margin-top: 5rem;
 }

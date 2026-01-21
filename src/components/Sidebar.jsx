@@ -7,7 +7,7 @@ const Sidebar = ({ isOpen, toggle }) => {
         <div className="header header-default header-sticky header-absolute">
             <div className={`fullscreen-sidebar ${isOpen ? 'open' : ''}`}>
                 <button className="close-btn" onClick={toggle}>
-                    <FaTimes />W
+                    <FaTimes />
                 </button>
                 <div className="sidebar-links">
                     <NavLink to="/" onClick={toggle}>Home</NavLink>

@@ -1,8 +1,4 @@
-/*----------------------------------------
-START: About CSS (Converted from SCSS)
-----------------------------------------*/
-
-/* About Section 1 */
+/
 .about-section {
     padding-top: 120px;
     position: relative;
@@ -157,7 +153,6 @@ START: About CSS (Converted from SCSS)
     z-index: -1;
 }
 
-/* About Section 2 */
 @media (max-width: 991px) {
     .about-wrap-2 {
         flex-direction: column-reverse;
@@ -280,7 +275,6 @@ START: About CSS (Converted from SCSS)
     animation-iteration-count: 1;
 }
 
-/* About Section 3 */
 .about-wrap-3 {
     max-width: 1680px;
     width: 100%;
@@ -328,7 +322,6 @@ START: About CSS (Converted from SCSS)
     }
 }
 
-/* Section 15 Card Hovers */
 .about-contect-15 .about-card {
     display: inline-flex;
     align-items: start;
@@ -351,7 +344,6 @@ START: About CSS (Converted from SCSS)
     pointer-events: none;
 }
 
-/* Keyframes (if not defined in utilities) */
 @keyframes wobble-vertical {
     16.65% {
         transform: translateY(8px);
@@ -404,7 +396,6 @@ START: About CSS (Converted from SCSS)
     border-bottom: 1px solid #2D343E;
     padding-bottom: 30px;
 }
-
 
  .about-success .about-success-item {
     display: flex;

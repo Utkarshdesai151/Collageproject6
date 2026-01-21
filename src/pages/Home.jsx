@@ -1,12 +1,12 @@
 import React, { useRef } from 'react';
 import { motion, useScroll, useTransform } from 'framer-motion';
-// Icons often used in these layouts - assuming lucide-react based on prop patterns
 import { Star, ArrowRight, Users, CheckCircle } from 'lucide-react';
 import About1 from '../assets/Homepage/about-img-6.png';
 import About2 from '../assets/Homepage/about-img-7.png';
 import About3 from '../assets/Homepage/about-img-11.png';
 import LogoOnly from '../assets/Logo/logoonly (1).svg';
 import About5 from '../assets/Homepage/about-5.jpg';
+import ServiceAccordion from '../components/ServiceCards';
 import '../index.css';
 import '../pages/About.css';
 
@@ -36,8 +36,6 @@ const ParallaxImage = ({ src, alt, className }) => {
         target: ref,
         offset: ["start end", "end start"]
     });
-
-    // Added a slight Y-offset transform to create the actual parallax effect
     const scale = useTransform(scrollYProgress, [0, 1], [1.2, 1]);
     const y = useTransform(scrollYProgress, [0, 1], ["-10%", "10%"]);
 
@@ -261,10 +259,9 @@ function Home() {
                             viewport={{ once: true }}
                         >
                             <img className="img-fluid rounded-4 shadow-lg" src={About5} alt="Digital Innovation" />
-                            
-                            
-                        </motion.div>
 
+
+                        </motion.div>
                         <motion.div
                             className="col-lg-6 text-start"
                             variants={staggerContainer}
@@ -277,7 +274,7 @@ function Home() {
                             </motion.h3>
 
                             <motion.p className="lead  mb-5" variants={fadeInUp}>
-                                Our commitment to quality drives every project. We bridge the gap between complex 
+                                Our commitment to quality drives every project. We bridge the gap between complex
                                 backend logic and intuitive frontend experiences to help your business scale.
                             </motion.p>
                             <motion.div className="row pt-4  border-2" variants={fadeInUp}>
@@ -301,6 +298,20 @@ function Home() {
                                 <button className="rr-primary-btn ">Launch Project</button>
                             </motion.div>
                         </motion.div>
+                    </div>
+                </div>
+            </section>
+            <section className="Service-section ">
+                <div className="container">
+                    <div className="row show-grid">
+                        <div className="col-md-8 col-sd-12  border-white">
+                            <div className="section-title">
+                                <h2 className="section-title t-up active">Industry  we're Excellence in</h2>
+                            </div>
+                        </div>
+                    </div>
+                    <div className="row">
+                       <ServiceAccordion />
                     </div>
                 </div>
             </section>

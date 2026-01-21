@@ -18,7 +18,7 @@ function AppContent() {
   useEffect(() => {
     setLoading(true);
     // 5.6s total time for water filling animation
-    const timer = setTimeout(() => setLoading(false), 5600); 
+    const timer = setTimeout(() => setLoading(false), 5600);
     return () => clearTimeout(timer);
   }, [location]);
 
@@ -26,17 +26,17 @@ function AppContent() {
     <>
       <AnimatePresence>
         {loading && (
-          <motion.div 
+          <motion.div
             className="loader-container"
             initial={{ y: 0 }}
-            exit={{ y: "-100%" }} 
+            exit={{ y: "-100%" }}
             transition={{ duration: 0.8, ease: [0.76, 0, 0.24, 1] }}
           >
             <div className="water-text">
               {text.split("").map((char, index) => (
-                <span 
-                  key={index} 
-                  data-text={char} 
+                <span
+                  key={index}
+                  data-text={char}
                   style={{ "--delay": `${index * 0.3}s` }}
                 >
                   {char}
@@ -48,9 +48,8 @@ function AppContent() {
       </AnimatePresence>
 
       <Navbar />
-      
+
       <AnimatePresence mode="wait">
-        {/* We use key={location.pathname} so Framer knows when the route changes */}
         <Routes location={location} key={location.pathname}>
           <Route path="/" element={<PageWrapper><Home /></PageWrapper>} />
           <Route path="/about" element={<PageWrapper><About /></PageWrapper>} />
@@ -58,6 +57,7 @@ function AppContent() {
           <Route path="/contact" element={<PageWrapper><Contact /></PageWrapper>} />
         </Routes>
       </AnimatePresence>
+       
     </>
   );
 }
@@ -65,16 +65,13 @@ function AppContent() {
 // THE UPGRADED WRAPPER
 const PageWrapper = ({ children }) => (
   <motion.div
-    initial={{ opacity: 0, y: 50 }} 
-    animate={{ opacity: 1, y: 0 }}   
-    exit={{ opacity: 0, y: -20 }}    
-    transition={{ 
-      duration: 0.6, 
+    initial={{ opacity: 0, y: 50 }}
+    animate={{ opacity: 1, y: 0 }}
+    exit={{ opacity: 0, y: -20 }}
+    transition={{
+      duration: 0.6,
       ease: "easeOut",
-      // DELAY LOGIC: 
-      // The loader exit duration is 0.8s. 
-      // Setting this to 0.8s makes the page start exactly when the loader is gone.
-      delay: 0.8 
+      delay: 0.8
     }}
   >
     {children}

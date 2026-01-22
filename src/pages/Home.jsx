@@ -75,7 +75,7 @@ function Home() {
                                 initial: { opacity: 0, x: -60 },
                                 whileInView: { opacity: 1, x: 0 }
                             }}
-                            transition={{ duration: 1, delay: 0.5, ease: "easeOut" }}
+                            transition={{ duration:1, delay: 4, ease: "easeOut" }}
                         >
                             Creativity is
                         </motion.h1>
@@ -85,7 +85,7 @@ function Home() {
                                 initial: { opacity: 0, x: 60 },
                                 whileInView: { opacity: 1, x: 0 }
                             }}
-                            transition={{ duration: 1, delay: 0.2, ease: "easeOut" }}
+                            transition={{ duration: 1, delay: 4, ease: "easeOut" }}
                         >
                             Collective.
                         </motion.h1>
@@ -259,8 +259,6 @@ function Home() {
                             viewport={{ once: true }}
                         >
                             <img className="img-fluid rounded-4 shadow-lg" src={About5} alt="Digital Innovation" />
-
-
                         </motion.div>
                         <motion.div
                             className="col-lg-6 text-start"
@@ -306,12 +304,12 @@ function Home() {
                     <div className="row show-grid">
                         <div className="col-md-8 col-sd-12  border-white">
                             <div className="section-title">
-                                <h2 className="section-title t-up active">Industry  we're Excellence in</h2>
+                                <h2 className="section-title t-up active">Built with passion. Delivered with precision.</h2>
                             </div>
                         </div>
                     </div>
                     <div className="row">
-                       <ServiceAccordion />
+                        <ServiceAccordion />
                     </div>
                 </div>
             </section>

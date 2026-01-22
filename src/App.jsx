@@ -10,6 +10,45 @@ import About from './pages/About';
 import Service from './pages/Service';
 import Contact from './pages/Contact';
 
+const containerVariants = {
+  animate: {
+    transition: {
+      staggerChildren: 0.1,
+    },
+  },
+  exit: {
+    y: "-100%",
+    transition: { 
+      duration: 1.2, 
+      ease: [0.76, 0, 0.24, 1] 
+    }
+  }
+};
+
+const charVariants = {
+  initial: { y: "110%" },
+  animate: { 
+    y: "0%",
+    transition: { 
+      duration: 1.2, 
+      ease: [0.6, 0.01, -0.05, 0.9] 
+    } 
+  },
+};
+
+const navbarVariants = {
+  initial: { opacity: 0, y: -20 },
+  animate: { 
+    opacity: 1, 
+    y: 0,
+    transition: { 
+      delay: 4 , 
+      duration: 0.8, 
+      ease: "popin" 
+    }
+  }
+};
+
 function AppContent() {
   const location = useLocation();
   const [loading, setLoading] = useState(false);
@@ -17,29 +56,31 @@ function AppContent() {
 
   useEffect(() => {
     setLoading(true);
-    // 5.6s total time for water filling animation
-    const timer = setTimeout(() => setLoading(false), 5600);
+    const timer = setTimeout(() => setLoading(false), 3000);
     return () => clearTimeout(timer);
   }, [location]);
 
   return (
     <>
-      <AnimatePresence>
+      <AnimatePresence mode="wait">
         {loading && (
           <motion.div
+            key="loader"
             className="loader-container"
-            initial={{ y: 0 }}
-            exit={{ y: "-100%" }}
-            transition={{ duration: 0.8, ease: [0.76, 0, 0.24, 1] }}
+            variants={containerVariants}
+            initial="initial"
+            animate="animate"
+            exit="exit"
           >
-            <div className="water-text">
+            <div className="split-text-wrapper">
               {text.split("").map((char, index) => (
-                <span
-                  key={index}
-                  data-text={char}
-                  style={{ "--delay": `${index * 0.3}s` }}
-                >
-                  {char}
+                <span key={index} className="char-mask">
+                  <motion.span
+                    className="split-char"
+                    variants={charVariants}
+                  >
+                    {char === " " ? "\u00A0" : char}
+                  </motion.span>
                 </span>
               ))}
             </div>
@@ -47,7 +88,14 @@ function AppContent() {
         )}
       </AnimatePresence>
 
-      <Navbar />
+      <motion.div 
+        variants={navbarVariants} 
+        initial="initial" 
+        animate="animate"
+        key={`nav-${location.pathname}`}
+      >
+        <Navbar />
+      </motion.div>
 
       <AnimatePresence mode="wait">
         <Routes location={location} key={location.pathname}>
@@ -57,22 +105,16 @@ function AppContent() {
           <Route path="/contact" element={<PageWrapper><Contact /></PageWrapper>} />
         </Routes>
       </AnimatePresence>
-       
     </>
   );
 }
 
-// THE UPGRADED WRAPPER
 const PageWrapper = ({ children }) => (
   <motion.div
-    initial={{ opacity: 0, y: 50 }}
+    initial={{ opacity: 0, y: 20 }}
     animate={{ opacity: 1, y: 0 }}
     exit={{ opacity: 0, y: -20 }}
-    transition={{
-      duration: 0.6,
-      ease: "easeOut",
-      delay: 0.8
-    }}
+    transition={{ duration: 0.6, ease: "easeOut", delay: 3.2 }}
   >
     {children}
   </motion.div>

@@ -27,7 +27,7 @@
 .split-char {
   font-size: clamp(2.5rem, 12vw, 7rem);
   font-weight: 900;
-  color: #0771ea;
+  color: #3fc0f3;
   text-transform: uppercase;
   display: inline-block;
   white-space: pre;

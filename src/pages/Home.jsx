@@ -1,33 +1,33 @@
 import React, { useRef } from 'react';
 import { motion, useScroll, useTransform } from 'framer-motion';
-import { Star, ArrowRight, Users, CheckCircle } from 'lucide-react';
+import { Users, CheckCircle } from 'lucide-react';
 import About1 from '../assets/Homepage/about-img-6.png';
-import About2 from '../assets/Homepage/about-img-7.png';
 import About3 from '../assets/Homepage/about-img-11.png';
-import LogoOnly from '../assets/Logo/logoonly (1).svg';
 import About5 from '../assets/Homepage/about-5.jpg';
 import ServiceAccordion from '../components/ServiceCards';
+import AboutSection from '../components/AboutSection';
 import '../index.css';
 import '../pages/About.css';
+import TeamMember from '../components/TeamMember';
 
 const fadeInUp = {
-    initial: { opacity: 0, y: 40 },
+    initial: { opacity: 0, y: 30 },
     whileInView: { opacity: 1, y: 0 },
-    viewport: { once: true, amount: 0.2 },
-    transition: { duration: 0.7, ease: "easeIn" } // Fixed "easein" to "easeIn"
+    viewport: { once: true, amount: 0.3 },
+    transition: { duration: 0.8, ease: [0.215, 0.61, 0.355, 1] }
 };
 
 const staggerContainer = {
     initial: {},
     whileInView: {
-        transition: { staggerChildren: 0.15 }
+        transition: { staggerChildren: 0.2 }
     }
 };
 
 const imageReveal = {
     initial: { clipPath: "inset(0 100% 0 0)" },
     whileInView: { clipPath: "inset(0 0% 0 0)" },
-    transition: { duration: 1.2, ease: "easeInOut" }
+    transition: { duration: 1.5, ease: [0.19, 1, 0.22, 1] }
 };
 
 const ParallaxImage = ({ src, alt, className }) => {
@@ -36,8 +36,7 @@ const ParallaxImage = ({ src, alt, className }) => {
         target: ref,
         offset: ["start end", "end start"]
     });
-    const scale = useTransform(scrollYProgress, [0, 1], [1.2, 1]);
-    const y = useTransform(scrollYProgress, [0, 1], ["-10%", "10%"]);
+    const y = useTransform(scrollYProgress, [0, 1], ["-15%", "15%"]);
 
     return (
         <div ref={ref} className={className} style={{ overflow: 'hidden', position: 'relative' }}>
@@ -46,11 +45,10 @@ const ParallaxImage = ({ src, alt, className }) => {
                 alt={alt}
                 className="img-fluid"
                 style={{
-                    scale,
                     y,
-                    transformOrigin: "center center",
+                    scale: 1.1,
                     width: '100%',
-                    height: '120%', // Adjusted height for movement room
+                    height: '130%',
                     objectFit: 'cover'
                 }}
             />
@@ -61,60 +59,137 @@ const ParallaxImage = ({ src, alt, className }) => {
 function Home() {
     return (
         <div className="mt-top">
-            <section className="hero-container">
+           <section className="hero-container">
+
                 <div className="container">
+
                     <motion.div
+
                         className="bg-typography"
+
                         initial="initial"
+
                         whileInView="whileInView"
+
                         variants={staggerContainer}
+
                         viewport={{ once: true }}  >
+
                         <motion.h1
+
                             className="main-title top"
+
                             variants={{
+
                                 initial: { opacity: 0, x: -60 },
+
                                 whileInView: { opacity: 1, x: 0 }
+
                             }}
-                            transition={{ duration:1, delay: 4, ease: "easeOut" }}
-                        >
-                            Creativity is
-                        </motion.h1>
-                        <motion.h1
-                            className="main-title bottom"
-                            variants={{
-                                initial: { opacity: 0, x: 60 },
-                                whileInView: { opacity: 1, x: 0 }
-                            }}
+
                             transition={{ duration: 1, delay: 4, ease: "easeOut" }}
+
                         >
-                            Collective.
+
+                            Creativity is
+
                         </motion.h1>
+
+                        <motion.h1
+
+                            className="main-title bottom"
+
+                            variants={{
+
+                                initial: { opacity: 0, x: 60 },
+
+                                whileInView: { opacity: 1, x: 0 }
+
+                            }}
+
+                            transition={{ duration: 1, delay: 4, ease: "easeOut" }}
+
+                        >
+
+                            Collective.
+
+                        </motion.h1>
+
                     </motion.div>
 
+
+
                     <div className="hero-content">
+
                         <div className="left-col">
+
                             <motion.div
+
                                 className="cta-section"
+
                                 initial={{ scale: 0, opacity: 0 }}
+
                                 animate={{ scale: 1, opacity: 1 }}
+
                                 whileHover={{ scale: 1.1 }}
+
                                 whileTap={{ scale: 0.95 }}
-                                transition={{ type: "spring", stiffness: 260, damping: 20 }}
+
+                                transition={{
+
+                                    type: "spring",
+
+                                    stiffness: 260,
+
+                                    damping: 20,
+
+                                    delay: 6,
+
+                                }}
+
                             >
+
                                 <div className="quote-circle">
+
                                     <span>Get A Quote</span>
+
                                     <motion.span
+
                                         className="arrow"
-                                        animate={{ y: [1, 0, 5] }}
-                                        transition={{ repeat: Infinity, duration: 2 }}
-                                    >↓</motion.span>
+
+                                        animate={{ y: [5, 0, 0] }} 
+
+                                        transition={{
+
+                                            repeat: Infinity,
+
+                                            duration: 2,
+
+                                            delay: 0.8 
+
+                                        }}
+
+                                    >
+
+                                        ↓
+
+                                    </motion.span>
+
                                 </div>
+
                             </motion.div>
+
                         </div>
+
                     </div>
+
                 </div>
+
             </section>
-            <section id="about" className="about-section-4 about-section-14  pt-120">
+
+            <AboutSection />
+
+            <section id="about" className="about-section-4 about-section-14 pt-120">
                 <div className="container">
                     <div className="row gy-lg-0 gy-5 align-items-center">
                         <motion.div
@@ -123,12 +198,11 @@ function Home() {
                             initial="initial"
                             whileInView="whileInView"
                             viewport={{ once: true }}
-                            transition={{ delay: 0.3, duration: 0.8 }}
                         >
                             <div className="about-img-wrap-4">
                                 <ParallaxImage
                                     src={About1}
-                                    alt="Main"
+                                    alt="About Company"
                                     className="about-img img-1"
                                 />
                             </div>
@@ -197,7 +271,7 @@ function Home() {
                         </motion.div>
                     </div>
 
-                    <div className="row gy-lg-0 gy-5 pt-4 align-items-center">
+                    <div className="row gy-lg-0 gy-5 pt-5 align-items-center">
                         <motion.div
                             className="col-lg-6 col-md-12"
                             initial="initial"
@@ -213,34 +287,26 @@ function Home() {
                                 <motion.div className="about-list-wrap" variants={fadeInUp}>
                                     <span>Development Special Services:</span>
                                     <ul className="about-list">
-                                        <li><i className="fa-regular fa-circle-check"></i>Emergency Solutions Anytime</li>
-                                        <li><i className="fa-regular fa-circle-check"></i>Affordable price upto 2 years</li>
-                                        <li><i className="fa-regular fa-circle-check"></i>Reliable &amp; Experienced Team</li>
+                                        <li><CheckCircle size={18} className="me-2" />Emergency Solutions Anytime</li>
+                                        <li><CheckCircle size={18} className="me-2" />Affordable price upto 2 years</li>
+                                        <li><CheckCircle size={18} className="me-2" />Reliable &amp; Experienced Team</li>
                                     </ul>
                                 </motion.div>
-                                <motion.div className="about-14-btn-wrap" variants={fadeInUp}>
-                                    <motion.a
-                                        href="/about"
-                                        className="rr-primary-btn"
-                                        whileHover={{ scale: 1.05 }}
-                                    >
-                                        Get Started
-                                    </motion.a>
-                                </motion.div>
+                                
                             </div>
                         </motion.div>
 
                         <motion.div
                             className="col-lg-6 col-md-12"
-                            initial={{ opacity: 0, x: 50 }}
-                            whileInView={{ opacity: 1, x: 0 }}
-                            transition={{ duration: 1, ease: "easeOut" }}
+                            variants={imageReveal}
+                            initial="initial"
+                            whileInView="whileInView"
                             viewport={{ once: true }}
                         >
                             <div className="about-img-wrap-4">
                                 <ParallaxImage
                                     src={About3}
-                                    alt="Service"
+                                    alt="Our Services"
                                     className="about-img-6"
                                 />
                             </div>
@@ -248,14 +314,15 @@ function Home() {
                     </div>
                 </div>
             </section>
-            <section className="innovation-detail py-5 ">
+
+            <section className="innovation-detail py-5">
                 <div className="container">
-                    <div className="row justify-content-between align-items-center mt-5 pt-2">
+                    <div className="row justify-content-between align-items-center mt-5">
                         <motion.div
                             className="col-lg-5 mb-5 mb-lg-0"
-                            initial={{ opacity: 0, x: -50 }}
-                            whileInView={{ opacity: 1, x: 0 }}
-                            transition={{ duration: 0.8 }}
+                            variants={fadeInUp}
+                            initial="initial"
+                            whileInView="whileInView"
                             viewport={{ once: true }}
                         >
                             <img className="img-fluid rounded-4 shadow-lg" src={About5} alt="Digital Innovation" />
@@ -271,41 +338,55 @@ function Home() {
                                 Excellence in Digital Innovation
                             </motion.h3>
 
-                            <motion.p className="lead  mb-5" variants={fadeInUp}>
+                            <motion.p className="lead mb-5" variants={fadeInUp}>
                                 Our commitment to quality drives every project. We bridge the gap between complex
                                 backend logic and intuitive frontend experiences to help your business scale.
                             </motion.p>
-                            <motion.div className="row pt-4  border-2" variants={fadeInUp}>
+
+                            <motion.div className="row pt-4" variants={fadeInUp}>
                                 <div className="col-6">
                                     <div className="d-flex align-items-center gap-2">
                                         <Users className="text-primary" size={28} />
                                         <h3 className="fw-bold mb-0">160+</h3>
                                     </div>
-                                    <p className=" mt-1">Business Partners</p>
+                                    <p className="mt-1">Business Partners</p>
                                 </div>
                                 <div className="col-6">
                                     <div className="d-flex align-items-center gap-2">
                                         <CheckCircle className="text-primary" size={28} />
                                         <h3 className="fw-bold mb-0">100%</h3>
                                     </div>
-                                    <p className=" mt-1">Satisfaction Rate</p>
+                                    <p className="mt-1">Satisfaction Rate</p>
                                 </div>
                             </motion.div>
 
                             <motion.div className="mt-5" variants={fadeInUp}>
-                                <button className="rr-primary-btn ">Launch Project</button>
+                                <motion.button
+                                    className="rr-primary-btn"
+                                    whileHover={{ scale: 1.05 }}
+                                    whileTap={{ scale: 0.95 }}
+                                >
+                                    Launch Project
+                                </motion.button>
                             </motion.div>
                         </motion.div>
                     </div>
                 </div>
             </section>
-            <section className="Service-section ">
+
+            <section className="Service-section">
                 <div className="container">
                     <div className="row show-grid">
-                        <div className="col-md-8 col-sd-12  border-white">
-                            <div className="section-title">
+                        <div className="col-md-8 col-sd-12">
+                            <motion.div
+                                className="section-title"
+                                initial={{ opacity: 0, x: -30 }}
+                                whileInView={{ opacity: 1, x: 0 }}
+                                viewport={{ once: true }}
+                                transition={{ duration: 0.8 }}
+                            >
                                 <h2 className="section-title t-up active">Built with passion. Delivered with precision.</h2>
-                            </div>
+                            </motion.div>
                         </div>
                     </div>
                     <div className="row">
@@ -313,6 +394,8 @@ function Home() {
                     </div>
                 </div>
             </section>
+            
+            <TeamMember/>
         </div>
     );
 }

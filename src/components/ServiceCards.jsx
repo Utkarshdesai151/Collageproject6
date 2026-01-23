@@ -54,7 +54,6 @@ const ServiceAccordion = () => {
               <div className="d-flex justify-content-between align-items-center h-100 p-4 text-white">
                 <div className="flex-grow-1">
                   <h2 className="display-5 fw-bold mb-0 text-uppercase ls-wide">{service.title}</h2>
-                  
                   <AnimatePresence>
                     {expandedId === service.id && (
                       <motion.div

@@ -10,7 +10,6 @@ const Navbar = () => {
 
     const toggleSidebar = () => setIsSidebarOpen(!isSidebarOpen);
 
-    // Handle scroll for shrink and glassmorphism effect
     useEffect(() => {
         const handleScroll = () => {
             if (window.scrollY > 50) {
@@ -24,7 +23,6 @@ const Navbar = () => {
         return () => window.removeEventListener("scroll", handleScroll);
     }, []);
 
-    // Prevent body scroll when sidebar is open
     useEffect(() => {
         document.body.style.overflow = isSidebarOpen ? "hidden" : "unset";
     }, [isSidebarOpen]);

@@ -8,7 +8,9 @@ import ServiceAccordion from '../components/ServiceCards';
 import AboutSection from '../components/AboutSection';
 import '../index.css';
 import '../pages/About.css';
-import TeamMember from '../components/TeamMember';
+import TeamSlider from '../components/ui/TeamSlider/Teamslider';
+import AboutSection2 from '../components/ui/AboutSection2/AboutSection2';
+import ContactForm from '../components/ContactForm';
 
 const fadeInUp = {
     initial: { opacity: 0, y: 30 },
@@ -59,7 +61,7 @@ const ParallaxImage = ({ src, alt, className }) => {
 function Home() {
     return (
         <div className="mt-top">
-           <section className="hero-container">
+            <section className="hero-container">
 
                 <div className="container">
 
@@ -87,7 +89,7 @@ function Home() {
 
                             }}
 
-                            transition={{ duration: 1, delay: 4, ease: "easeOut" }}
+                            transition={{duration: 0, delay: 0, ease: "easeOut"  }}
 
                         >
 
@@ -107,7 +109,7 @@ function Home() {
 
                             }}
 
-                            transition={{ duration: 1, delay: 4, ease: "easeOut" }}
+                            transition={{ duration: 0, delay: 0, ease: "easeOut" }}
 
                         >
 
@@ -157,7 +159,7 @@ function Home() {
 
                                         className="arrow"
 
-                                        animate={{ y: [5, 0, 0] }} 
+                                        animate={{ y: [5, 0, 0] }}
 
                                         transition={{
 
@@ -165,7 +167,7 @@ function Home() {
 
                                             duration: 2,
 
-                                            delay: 0.8 
+                                            delay: 0.8
 
                                         }}
 
@@ -292,7 +294,7 @@ function Home() {
                                         <li><CheckCircle size={18} className="me-2" />Reliable &amp; Experienced Team</li>
                                     </ul>
                                 </motion.div>
-                                
+
                             </div>
                         </motion.div>
 
@@ -315,69 +317,12 @@ function Home() {
                 </div>
             </section>
 
-            <section className="innovation-detail py-5">
-                <div className="container">
-                    <div className="row justify-content-between align-items-center mt-5">
-                        <motion.div
-                            className="col-lg-5 mb-5 mb-lg-0"
-                            variants={fadeInUp}
-                            initial="initial"
-                            whileInView="whileInView"
-                            viewport={{ once: true }}
-                        >
-                            <img className="img-fluid rounded-4 shadow-lg" src={About5} alt="Digital Innovation" />
-                        </motion.div>
-                        <motion.div
-                            className="col-lg-6 text-start"
-                            variants={staggerContainer}
-                            initial="initial"
-                            whileInView="whileInView"
-                            viewport={{ once: true }}
-                        >
-                            <motion.h3 className="display-5 fw-bold mb-4" variants={fadeInUp}>
-                                Excellence in Digital Innovation
-                            </motion.h3>
 
-                            <motion.p className="lead mb-5" variants={fadeInUp}>
-                                Our commitment to quality drives every project. We bridge the gap between complex
-                                backend logic and intuitive frontend experiences to help your business scale.
-                            </motion.p>
-
-                            <motion.div className="row pt-4" variants={fadeInUp}>
-                                <div className="col-6">
-                                    <div className="d-flex align-items-center gap-2">
-                                        <Users className="text-primary" size={28} />
-                                        <h3 className="fw-bold mb-0">160+</h3>
-                                    </div>
-                                    <p className="mt-1">Business Partners</p>
-                                </div>
-                                <div className="col-6">
-                                    <div className="d-flex align-items-center gap-2">
-                                        <CheckCircle className="text-primary" size={28} />
-                                        <h3 className="fw-bold mb-0">100%</h3>
-                                    </div>
-                                    <p className="mt-1">Satisfaction Rate</p>
-                                </div>
-                            </motion.div>
-
-                            <motion.div className="mt-5" variants={fadeInUp}>
-                                <motion.button
-                                    className="rr-primary-btn"
-                                    whileHover={{ scale: 1.05 }}
-                                    whileTap={{ scale: 0.95 }}
-                                >
-                                    Launch Project
-                                </motion.button>
-                            </motion.div>
-                        </motion.div>
-                    </div>
-                </div>
-            </section>
 
             <section className="Service-section">
                 <div className="container">
                     <div className="row show-grid">
-                        <div className="col-md-8 col-sd-12">
+                        <div className="justify-content-center text-center mt-5">
                             <motion.div
                                 className="section-title"
                                 initial={{ opacity: 0, x: -30 }}
@@ -385,7 +330,8 @@ function Home() {
                                 viewport={{ once: true }}
                                 transition={{ duration: 0.8 }}
                             >
-                                <h2 className="section-title t-up active">Built with passion. Delivered with precision.</h2>
+                                <h2 className="section-title t-up active">Bringing Ideas to Life with
+                                    Creative Expertise</h2>
                             </motion.div>
                         </div>
                     </div>
@@ -394,8 +340,10 @@ function Home() {
                     </div>
                 </div>
             </section>
-            
-            <TeamMember/>
+
+            <TeamSlider />
+            <AboutSection2 />
+            <ContactForm />
         </div>
     );
 }

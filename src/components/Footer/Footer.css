@@ -1,0 +1,211 @@
+/* VARIABLES */
+:root {
+  --satvarth-bg: #121212;       /* Deep Black */
+  --satvarth-blue: #007bff;     /* Royal Blue */
+  --text-white: #ffffff;
+  --text-grey: #a1a1a1;
+  --border-color: #222;
+}
+
+.footer {
+  background-color: var(--satvarth-bg);
+  color: var(--text-grey);
+  padding: 80px 20px 20px;
+  font-family: 'Inter', sans-serif;
+  border-top: 1px solid var(--border-color);
+}
+
+.footer-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  /* 4 Columns: Brand is wider (2fr), others are equal (1fr) */
+  grid-template-columns: 2fr 1fr 1fr 1.5fr; 
+  gap: 40px;
+  margin-bottom: 60px;
+}
+
+/* --- BRAND COLUMN & LOGO FIX --- */
+.footer-logo {
+  display: flex;
+  align-items: center;
+  gap: 12px; /* Space between SVG and Text */
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: var(--text-white);
+  margin-bottom: 20px;
+}
+
+/* Styles specifically for your SVG import */
+.logo-icon {
+  width: 40px;       /* Adjust this size based on your SVG preference */
+  height: auto;
+  object-fit: contain;
+}
+
+.logo-suffix {
+  color: var(--satvarth-blue);
+  font-weight: 300;
+}
+
+.footer-tagline {
+  line-height: 1.6;
+  margin-bottom: 25px;
+  max-width: 320px;
+  font-size: 0.95rem;
+}
+
+.social-links {
+  display: flex;
+  gap: 15px;
+}
+
+.social-icon {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.05);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-white);
+  font-size: 1.1rem;
+  transition: all 0.3s ease;
+  text-decoration: none;
+}
+
+.social-icon:hover {
+  background: var(--satvarth-blue);
+  transform: translateY(-3px);
+  color: white;
+}
+
+/* --- LINKS COLUMNS --- */
+.footer-col h4 {
+  color: var(--text-white);
+  font-size: 1.1rem;
+  margin-bottom: 25px;
+  font-weight: 600;
+}
+
+.footer-col ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.footer-col ul li {
+  margin-bottom: 12px;
+}
+
+.footer-col ul li a {
+  color: var(--text-grey);
+  text-decoration: none;
+  transition: 0.3s;
+  font-size: 0.95rem;
+  display: inline-block;
+}
+
+/* Slide effect on hover */
+.footer-col ul li a:hover {
+  color: var(--satvarth-blue);
+  transform: translateX(5px); 
+}
+
+/* --- NEWSLETTER COLUMN --- */
+.newsletter-col p {
+  margin-bottom: 20px;
+  font-size: 0.95rem;
+}
+
+.newsletter-form {
+  display: flex;
+  position: relative;
+  max-width: 100%;
+}
+
+.newsletter-form input {
+  width: 100%;
+  padding: 14px 50px 14px 14px; /* Right padding ensures text doesn't hit button */
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid var(--border-color);
+  border-radius: 6px;
+  color: white;
+  outline: none;
+  font-size: 0.9rem;
+  transition: border 0.3s ease;
+}
+
+.newsletter-form input:focus {
+  border-color: var(--satvarth-blue);
+}
+
+.newsletter-form button {
+  position: absolute;
+  right: 5px;
+  top: 5px;
+  bottom: 5px;
+  width: 40px;
+  background: var(--satvarth-blue);
+  border: none;
+  color: white;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 1.2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: 0.3s;
+}
+
+.newsletter-form button:hover {
+  filter: brightness(1.1);
+}
+
+/* --- BOTTOM BAR --- */
+.footer-bottom {
+  max-width: 1200px;
+  margin: 0 auto;
+  border-top: 1px solid var(--border-color);
+  padding-top: 25px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.85rem;
+}
+
+.legal-links {
+  display: flex;
+  gap: 20px;
+}
+
+.legal-links a {
+  color: var(--text-grey);
+  text-decoration: none;
+  transition: 0.2s;
+}
+
+.legal-links a:hover {
+  color: var(--text-white);
+  text-decoration: underline;
+}
+
+/* --- RESPONSIVE DESIGN --- */
+@media (max-width: 900px) {
+  .footer-container {
+    grid-template-columns: 1fr 1fr; /* 2x2 Grid on Tablet */
+    gap: 30px;
+  }
+}
+
+@media (max-width: 600px) {
+  .footer-container {
+    grid-template-columns: 1fr; /* 1 Column on Mobile */
+  }
+  
+  .footer-bottom {
+    flex-direction: column;
+    gap: 15px;
+    text-align: center;
+  }
+}

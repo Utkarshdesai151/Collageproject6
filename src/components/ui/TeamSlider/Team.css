@@ -1,0 +1,159 @@
+/* Container & Section Styles */
+.team-section {
+  overflow: hidden;
+  background-color: #050a18;
+  color: #ffffff;
+  width: 100%;
+}
+
+.scroll-wrapper {
+  width: 100%;
+}
+
+.content-container {
+  display: flex;
+  flex-direction: column; 
+  padding: 2rem;
+  width: 100%;
+  height: auto; /* Allow content to grow vertically */
+}
+
+/* Desktop: Switch to horizontal layout */
+@media (min-width: 1024px) {
+  .content-container {
+    flex-direction: row;
+    height: 100vh;
+    width: fit-content; /* Critical: let the content define the width */
+    align-items: center;
+    padding-left: 10vw;
+    padding-right: 10vw;
+  }
+}
+
+/* Intro Text Styles */
+.intro-block {
+  display: flex;
+  flex-direction: column;
+  padding-bottom: 3rem;
+  flex-shrink: 0;
+}
+
+@media (min-width: 1024px) {
+  .intro-block {
+    padding-right: 8rem;
+    padding-bottom: 0;
+  }
+}
+
+.title {
+  font-size: clamp(2.5rem, 8vw, 4rem); /* Responsive font size */
+  font-weight: 700;
+  text-transform: uppercase;
+  line-height: 1.1;
+  margin: 0;
+}
+
+.subtitle {
+  margin-top: 1rem;
+  color: #9ca3af;
+  max-width: 24rem;
+  font-size: 1.1rem;
+}
+
+/* Cards Wrapper */
+.cards-wrapper {
+  display: flex;
+  flex-direction: column; /* Vertical stack on mobile */
+  gap: 2rem;
+}
+
+@media (min-width: 768px) {
+  .cards-wrapper {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* 2 columns on tablets */
+  }
+}
+
+@media (min-width: 1024px) {
+  .cards-wrapper {
+    display: flex;
+    flex-direction: row; /* Horizontal on desktop */
+    gap: 3rem;
+  }
+}
+
+/* Individual Card Styles */
+.member-card {
+  position: relative;
+  width: 100%; /* Full width on mobile */
+  max-width: 350px;
+  height: 480px;
+  background-color: #0c1222;
+  overflow: hidden;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+  margin: 0 auto; /* Center on mobile */
+}
+
+@media (min-width: 1024px) {
+  .member-card {
+    width: 350px; /* Fixed width back on desktop for horizontal scroll */
+    flex-shrink: 0;
+  }
+}
+
+.image-container {
+  height: 380px;
+  overflow: hidden;
+}
+
+.member-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.member-card:hover .member-image {
+  transform: scale(1.1);
+}
+
+.member-info {
+  padding: 1.5rem;
+  position: relative;
+  transition: background-color 0.3s ease;
+}
+
+.member-card:hover .member-info {
+  background-color: #2563eb;
+}
+
+.member-name {
+  font-size: 1.25rem;
+  font-weight: 700;
+  margin: 0;
+}
+
+.member-role {
+  color: #9ca3af;
+  margin: 0.25rem 0 0 0;
+  transition: color 0.3s ease;
+}
+
+.member-card:hover .member-role {
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.plus-icon {
+  position: absolute;
+  right: 1.5rem;
+  bottom: 1.5rem;
+  width: 2.2rem;
+  height: 2.2rem;
+  background-color: #ffffff;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #000000;
+}

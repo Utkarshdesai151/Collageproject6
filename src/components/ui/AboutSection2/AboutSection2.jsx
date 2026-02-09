@@ -12,9 +12,7 @@ const AboutSection = () => {
   return (
     <section className="about-section">
       <div className="about-container">
-        
-        {/* Left Column: Content */}
-        <div className="about-content">
+               <div className="about-content">
           <div className="subtitle-wrapper">
             <div className="blue-dash" />
             <span className="subtitle">ABOUT OUR COMPANY</span>

@@ -3,13 +3,12 @@ import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-route
 import { AnimatePresence, motion } from 'framer-motion';
 import './index.css';
 import './styles/WaterLoader.css';
-
 import Navbar from './components/Navbar';
 import Home from './pages/Home';
 import About from './pages/About';
 import Service from './pages/Service';
 import Contact from './pages/Contact';
-
+import GoToTop from './components/GoToTop';
 /* ---------------- VARIANTS ---------------- */
 
 const loaderContainer = {
@@ -70,7 +69,7 @@ const pageVariants = {
 function AppContent() {
   const location = useLocation();
   const [loading, setLoading] = useState(true);
-  const text = "Satwarth";
+  const text = "Satvarth";
 
   // Loader only on FIRST load
   useEffect(() => {
@@ -125,6 +124,8 @@ function AppContent() {
               <Route path="/contact" element={<PageWrapper><Contact /></PageWrapper>} />
             </Routes>
           </AnimatePresence>
+                <GoToTop/>
+
         </>
       )}
     </>

@@ -295,9 +295,7 @@ function Home() {
                 <AboutSection2 />
             </div>
 
-            <div data-scroll-section>
-                <ContactForm />
-            </div>
+            
 
             <div data-scroll-section>
                 <Footer />

@@ -3,7 +3,7 @@ import { NavLink, Link } from "react-router-dom";
 import { FaBars } from "react-icons/fa";
 import Sidebar from "./Sidebar";
 import Logo from "../assets/Header/Satwarth solution.svg";
-
+import "../index.css";
 const Navbar = () => {
     const [isSidebarOpen, setIsSidebarOpen] = useState(false);
     const [isScrolled, setIsScrolled] = useState(false);
@@ -39,11 +39,9 @@ const Navbar = () => {
                         </div>
                         <nav className="header-menu-wrap d-none d-md-block">
                             <ul className="main-menu">
-                                <li><NavLink to="/">Home</NavLink></li>
-                                <li><NavLink to="/about">Pages</NavLink></li>
+                                <li><NavLink className="nalvink-primary" to="/">Home</NavLink></li>
+                                <li><NavLink to="/about">About</NavLink></li>
                                 <li><NavLink to="/services">Services</NavLink></li>
-                                <li><NavLink to="/shop">Shop</NavLink></li>
-                                <li><NavLink to="/blog">Blog</NavLink></li>
                                 <li><NavLink to="/contact">Contact</NavLink></li>
                             </ul>
                         </nav>

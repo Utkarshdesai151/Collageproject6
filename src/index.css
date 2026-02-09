@@ -47,6 +47,9 @@ p {
   line-height: 28px;
 }
 
+.nalvink-primary{
+  color: #3fc0f3;
+}
 :root {
   --primary-white: #ffffff;
   --bg-dark: #121212;
@@ -177,17 +180,20 @@ p {
   padding: 0;
 }
 
-.main-menu a {
+.main-menu ul {
   text-decoration: none;
   color: #333;
   font-weight: 500;
   transition: color 0.3s;
 }
 
-.main-meny a :hover {
+.main-menu li {
   color: #3fc0f3;
 }
 
+.main-menu li a.active, .main-menu li a:hover{
+  color: #3fc0f3;
+}
 .navbar-shrunk {
   padding: 10px 0;
   margin-top: 10px;

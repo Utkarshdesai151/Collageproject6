@@ -1,8 +1,8 @@
-/
+
 .about-section {
-    padding-top: 120px;
     position: relative;
     z-index: 1;
+    background-color: #050a18;
 }
 
 @media (max-width: 1199px) {

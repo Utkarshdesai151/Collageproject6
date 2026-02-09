@@ -17,6 +17,16 @@ body {
   width: 100%;
   position: relative;
 }
+::-webkit-scrollbar{
+  width: 5px;
+}
+::-webkit-scrollbar-track{
+  background: #11151c;
+}
+::-webkit-scrollbar-thumb{
+  background: #008cff;
+  border-radius: 12px;
+}
 
 .bg-typography {
   overflow: hidden;
@@ -152,7 +162,7 @@ p {
 
 .custom-navbar {
   position: fixed;
-  top: 0;
+  top: -9px;
   left: 0;
   width: 100%;
   z-index: 1000;

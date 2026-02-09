@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import "./ContactForm.css";
 
 const ContactForm = () => {
-  // State for form fields
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -11,7 +10,6 @@ const ContactForm = () => {
     message: "",
   });
 
-  // Options for the "Chips" to match the reference design
   const services = [
     "MVP Development",
     "Website Design",
@@ -40,7 +38,6 @@ const ContactForm = () => {
     <section className="contact-section">
       <div className="contact-wrapper">
         
-        {/* LEFT COLUMN: Brand Info & Pitch */}
         <div className="contact-info">
           <h2 className="section-title">
             Have A Project Idea<br />
@@ -64,7 +61,6 @@ const ContactForm = () => {
           </ul>
 
           <div className="direct-contact">
-             {/* You can replace this with an actual icon later */}
             <div className="icon-circle">📞</div>
             <div className="contact-text">
                 <span>Book A Call Directly</span>
@@ -73,11 +69,9 @@ const ContactForm = () => {
           </div>
         </div>
 
-        {/* RIGHT COLUMN: The Form */}
         <div className="form-container">
           <form className="contact-form">
             
-            {/* Name & Email Row */}
             <div className="input-row">
               <div className="input-group">
                 <label>Name</label>
@@ -99,7 +93,6 @@ const ContactForm = () => {
               </div>
             </div>
 
-            {/* Services Selection */}
             <div className="selection-group">
               <label>What Do You Need?</label>
               <div className="chip-container">
